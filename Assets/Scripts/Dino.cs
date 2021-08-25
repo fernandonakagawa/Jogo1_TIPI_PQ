@@ -54,7 +54,7 @@ public class Dino : MonoBehaviour
         textoQtdCogumelos.GetComponent<Text>().text = qtdCogumelos.ToString();
     }
 
-    void Andar(bool andandoParaFrente)
+    public void Andar(bool andandoParaFrente)
     {
         if (andandoParaFrente)
         {
@@ -71,7 +71,7 @@ public class Dino : MonoBehaviour
             this.transform.position = pos;
         }
     }
-    void Pular()
+    public void Pular()
     {
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
         Vector2 forca = new Vector2(0f, 10f);

@@ -13,11 +13,15 @@ public class Dino : MonoBehaviour
     private SpriteRenderer sprite;
     public GameObject textoQtdCogumelos;
     private int qtdCogumelos;
+    public AudioClip somMorrendo;
+    public AudioClip somComendo;
+    private AudioSource audio;
     void Start()
     {
         posicaoInicial = this.transform.position;
         anim = this.GetComponent<Animator>();
         sprite = this.GetComponent<SpriteRenderer>();
+        audio = this.GetComponent<AudioSource>();
         qtdCogumelos = 0;
         AtualizarHUD();
     }
@@ -36,6 +40,7 @@ public class Dino : MonoBehaviour
         if(col.gameObject.tag == "cogumelo_ruim")
         {
             this.transform.position = posicaoInicial;
+            audio.PlayOneShot(somMorrendo);
         }
         if(col.gameObject.tag == "chao")
         {
@@ -46,6 +51,20 @@ public class Dino : MonoBehaviour
             qtdCogumelos++;
             AtualizarHUD();
             Destroy(col.gameObject);
+            audio.PlayOneShot(somComendo);
+        }
+        //if (col.collider.CompareTag("inimigo") &&
+        //    !anim.GetBool("estaMorrendo"))
+        if (col.collider.CompareTag("inimigo"))
+        {
+            //audio.PlayOneShot(audioMorri);
+            //anim.SetBool("estaMorrendo", true);
+
+            //Destroy(collision.gameObject);
+            //qtdVidas--;
+            AtualizarHUD();
+            this.transform.position = posicaoInicial;
+            audio.PlayOneShot(somMorrendo);
         }
     }
 

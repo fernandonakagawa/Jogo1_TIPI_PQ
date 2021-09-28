@@ -93,7 +93,7 @@ public class Dino : MonoBehaviour
     public void Pular()
     {
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
-        Vector2 forca = new Vector2(0f, 10f);
+        Vector2 forca = new Vector2(0f, 15f);
         rb.AddForce(forca, ForceMode2D.Impulse);
         tempoPulado = tempoPulo;
         anim.SetBool("estaPulando", true);

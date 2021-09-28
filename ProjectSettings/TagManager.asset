@@ -8,6 +8,7 @@ TagManager:
   - cogumelo_bom
   - cogumelo_ruim
   - inimigo
+  - dino
   layers:
   - Default
   - TransparentFX

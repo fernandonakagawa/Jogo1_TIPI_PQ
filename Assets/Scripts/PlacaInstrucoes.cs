@@ -14,6 +14,8 @@ public class PlacaInstrucoes : MonoBehaviour
         avisoCanvas.SetActive(false);
         entendido = false;
         qtdNEntendi = 0;
+
+        
     }
 
     // Update is called once per frame
